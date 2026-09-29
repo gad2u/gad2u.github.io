@@ -2,31 +2,283 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GAD2U – Gadgets, die Probleme lösen</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #fff;
+    }
+
+    /* ---------- NAVIGATION ---------- */
+
+    header {
+      height: 88px;
+      background: #111518;
+      display: flex;
+      align-items: center;
+      padding: 0 4%;
+      position: relative;
+      z-index: 10;
+      border-bottom: 1px solid #303438;
+    }
+
+    .logo img {
+      width: 220px;
+      display: block;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 38px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ff8a00;
+    }
+
+    .recommend-button {
+      margin-left: 35px;
+      background: #ff8a00;
+      color: #111 !important;
+      padding: 14px 22px;
+      border-radius: 30px;
+      font-weight: 700;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+      min-height: 610px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(8,10,12,.92) 0%,
+          rgba(8,10,12,.78) 31%,
+          rgba(8,10,12,.28) 55%,
+          rgba(8,10,12,.03) 100%
+        ),
+        url("Webseite 1.0.png");
+      background-size: cover;
+      background-position: center;
+      padding: 55px 4%;
+    }
+
+    .hero-content {
+      width: 620px;
+      max-width: 52%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-brand {
+      margin-bottom: 25px;
+    }
+
+    .hero-brand img {
+      width: 500px;
+      max-width: 100%;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 3vw, 52px);
+      line-height: 1.08;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 12px rgba(0,0,0,.45);
+    }
+
+    .hero p {
+      font-size: 21px;
+      line-height: 1.55;
+      color: #ededed;
+      max-width: 620px;
+      margin-bottom: 32px;
+      text-shadow: 0 2px 8px rgba(0,0,0,.5);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background: #ff8a00;
+      color: #111;
+    }
+
+    .btn-secondary {
+      color: #fff;
+      border: 2px solid #ff8a00;
+      background: rgba(12,14,16,.55);
+    }
+
+    /* ---------- ERSTER PLATZHALTER ---------- */
+
+    .next-section {
+      background: #fff;
+      color: #111;
+      padding: 38px 4%;
+      text-align: center;
+    }
+
+    .next-section h2 {
+      font-size: 30px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 1000px) {
+      nav {
+        display: none;
+      }
+
+      header {
+        height: 76px;
+      }
+
+      .logo img {
+        width: 185px;
+      }
+
+      .hero {
+        min-height: 650px;
+        background-position: 65% center;
+      }
+
+      .hero-content {
+        max-width: 70%;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        min-height: 700px;
+        align-items: flex-end;
+        padding: 40px 24px;
+        background-position: 70% center;
+        background-image:
+          linear-gradient(
+            0deg,
+            rgba(8,10,12,.98) 0%,
+            rgba(8,10,12,.82) 48%,
+            rgba(8,10,12,.18) 100%
+          ),
+          url("Webseite 1.0.png");
+      }
+
+      .hero-content {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .hero-brand img {
+        width: 330px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>GAD2U</h1>
-  <p>Gadgets, die Probleme lösen.</p>
-  <p>Hier entsteht die Website von GAD2U.</p>  
-  <h2>Impressum</h2>
-  <p>Angaben gemäß § 5 DDG</p>
-  <p>
-    Torsten Rusbült<br>
-    Marienstrasse 13<br>
-    15562 Rüdersdorf bei Berlin<br>
-    Deutschland
-  </p>
 
-  <h3>Kontakt</h3>
-  <p>E-Mail: <a href="mailto:info@gad2u.de">info@gad2u.de</a></p>
+  <header>
+    <a class="logo" href="index.html">
+      <img src="Tiktok-Logo 2.png" alt="GAD2U">
+    </a>
 
-  <h3>Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV</h3>
-  <p>
-    Torsten Rusbült<br>
-    Marienstrasse 13<br>
-    15562 Rüdersdorf bei Berlin
-  </p>
-<p><a href="datenschutz.html">Datenschutzerklärung</a></p>
+    <nav>
+      <a class="active" href="#">Home</a>
+      <a href="#">Gadgets</a>
+      <a href="#">E-Books &amp; Anleitungen</a>
+      <a href="#">Haus &amp; Garten</a>
+      <a href="#">Neuheiten</a>
+      <a href="#">Über GAD2U</a>
+      <a class="recommend-button" href="#">Unsere Empfehlungen →</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-content">
+
+        <div class="hero-brand">
+          <img src="Tiktok-Logo 2.png"
+               alt="GAD2U – Gadgets, die Probleme lösen">
+        </div>
+
+        <h1>Praktische Lösungen für deinen Alltag.</h1>
+
+        <p>
+          Clevere Gadgets, smarte Helfer und digitale Anleitungen –
+          für Zuhause, unterwegs und vieles mehr.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#">
+            Unsere Themen entdecken →
+          </a>
+
+          <a class="btn btn-secondary" href="#">
+            ▶&nbsp;&nbsp;Kurz erklärt
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="next-section">
+      <h2>GAD2U – hier geht es gleich weiter.</h2>
+    </section>
+
+  </main>
+
 </body>
 </html>

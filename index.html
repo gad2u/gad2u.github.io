@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -148,22 +149,87 @@
       background: rgba(12,14,16,.55);
     }
 
-    /* ---------- ERSTER PLATZHALTER ---------- */
+        /* ---------- KATEGORIEN ---------- */
 
-    .next-section {
-      background: #fff;
-      color: #111;
-      padding: 38px 4%;
-      text-align: center;
+    .categories {
+      background: #f4f4f4;
+      color: #15191c;
+      padding: 70px 4% 80px;
     }
 
-    .next-section h2 {
-      font-size: 30px;
+    .categories-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .categories h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .categories-intro {
+      text-align: center;
+      color: #62676b;
+      font-size: 18px;
+      margin-bottom: 42px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .category-card {
+      background: #fff;
+      color: #15191c;
+      text-decoration: none;
+      border-radius: 18px;
+      padding: 30px 26px;
+      min-height: 255px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      border: 1px solid #e7e7e7;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(0,0,0,.13);
+    }
+
+    .category-icon {
+      font-size: 34px;
+      margin-bottom: 22px;
+    }
+
+    .category-card h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .category-card p {
+      color: #62676b;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .category-link {
+      color: #e87800;
+      font-weight: 700;
+      margin-top: auto;
     }
 
     /* ---------- RESPONSIVE ---------- */
 
-    @media (max-width: 1000px) {
+       @media (max-width: 1000px) {
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
       nav {
         display: none;
       }
@@ -187,7 +253,9 @@
     }
 
     @media (max-width: 650px) {
-      .hero {
+           .category-grid {
+        grid-template-columns: 1fr;
+      } .hero {
         min-height: 700px;
         align-items: flex-end;
         padding: 40px 24px;
@@ -274,9 +342,47 @@
       </div>
     </section>
 
-    <section class="next-section">
-      <h2>GAD2U – hier geht es gleich weiter.</h2>
-    </section>
+    <section class="categories">
+  <div class="categories-inner">
+
+    <h2>Entdecke unsere Themen</h2>
+    <p class="categories-intro">
+      Praktische Lösungen, clevere Ideen und Empfehlungen für deinen Alltag.
+    </p>
+
+    <div class="category-grid">
+
+      <a class="category-card" href="#">
+        <span class="category-icon">⚙️</span>
+        <h3>Gadgets</h3>
+        <p>Clevere Technik und praktische Helfer, die echte Alltagsprobleme lösen.</p>
+        <span class="category-link">Entdecken →</span>
+      </a>
+
+      <a class="category-card" href="#">
+        <span class="category-icon">📘</span>
+        <h3>E-Books &amp; Anleitungen</h3>
+        <p>Wissen, Tipps und verständliche Anleitungen kompakt zusammengefasst.</p>
+        <span class="category-link">Mehr erfahren →</span>
+      </a>
+
+      <a class="category-card" href="#">
+        <span class="category-icon">🏡</span>
+        <h3>Haus &amp; Garten</h3>
+        <p>Smarte Lösungen und nützliche Helfer für dein Zuhause und deinen Garten.</p>
+        <span class="category-link">Entdecken →</span>
+      </a>
+
+      <a class="category-card" href="#">
+        <span class="category-icon">✨</span>
+        <h3>Neu bei GAD2U</h3>
+        <p>Neue Ideen, Produkte und Themen, die wir gerade für dich entdeckt haben.</p>
+        <span class="category-link">Neuheiten ansehen →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
 
   </main>
 

@@ -251,7 +251,68 @@
   margin: 0;
 }
 
- 
+ /* ---------- WARUM GAD2U ---------- */
+
+.why-gad2u {
+    background: #15191c;
+    color: #ffffff;
+    padding: 38px 4%;
+}
+
+.why-inner {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 55px;
+}
+
+.why-intro {
+    flex: 1.15;
+}
+
+.why-intro h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.why-intro p {
+    color: #c8cdd1;
+    font-size: 17px;
+    line-height: 1.5;
+    max-width: 520px;
+}
+
+.why-points {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.why-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.why-icon {
+    color: #ff8a00;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.why-point h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.why-point p {
+    color: #c8cdd1;
+    font-size: 14px;
+    line-height: 1.45;
+}
 
 
 
@@ -283,6 +344,15 @@
       .hero-content {
         max-width: 70%;
       }
+    }    .why-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+    }
+
+    .why-points {
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
     }
 
     @media (max-width: 650px) {
@@ -435,7 +505,47 @@
     </div>
   </div>
 </section>
+<section class="why-gad2u">
+    <div class="why-inner">
 
+        <div class="why-intro">
+            <h2>Warum GAD2U?</h2>
+            <p>
+                Wir zeigen dir Produkte und Lösungen, die deinen Alltag
+                einfacher machen – verständlich, praktisch und ehrlich.
+            </p>
+        </div>
+
+        <div class="why-points">
+
+            <div class="why-point">
+                <span class="why-icon">✓</span>
+                <div>
+                    <h3>Ehrlich ausgewählt</h3>
+                    <p>Nur Empfehlungen, hinter denen wir auch wirklich stehen.</p>
+                </div>
+            </div>
+
+            <div class="why-point">
+                <span class="why-icon">✓</span>
+                <div>
+                    <h3>Alltagstauglich</h3>
+                    <p>Praktische Lösungen statt unnötiger Spielerei.</p>
+                </div>
+            </div>
+
+            <div class="why-point">
+                <span class="why-icon">✓</span>
+                <div>
+                    <h3>Transparent empfohlen</h3>
+                    <p>Klare Informationen, damit du selbst entscheiden kannst.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
   </main>
 
 </body>

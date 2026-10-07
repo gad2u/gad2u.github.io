@@ -361,10 +361,31 @@
 
     @media (min-width: 1800px) and (min-aspect-ratio: 16/9) {
       .hero {
-        background-size: auto 100%;
-        background-repeat: no-repeat;
-        background-position: center;
+        background-image:
+          linear-gradient(
+            90deg,
+            rgba(8,10,12,.92) 0%,
+            rgba(8,10,12,.78) 31%,
+            rgba(8,10,12,.28) 55%,
+            rgba(8,10,12,.03) 100%
+          ),
+          url("Webseite 2.0.png"),
+          url("Webseite 2.0.png");
+        background-size: auto 100%, auto 100%, cover;
+        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-position: center, center, center;
         background-color: #080a0c;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(8,10,12,.28);
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+        z-index: 0;
+        pointer-events: none;
       }
     }
 

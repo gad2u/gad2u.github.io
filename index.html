@@ -490,30 +490,36 @@
 
     }
   
-    /* ---------- GAD2U SCROLLBAR: sichtbarer Tech-Regler ---------- */
+    /* ---------- GAD2U: dauerhaft sichtbarer Scrollregler ---------- */
     html {
       overflow-y: scroll;
-      scrollbar-width: auto;
-      scrollbar-color: #ff9400 #20252a;
+      scrollbar-width: none;
     }
-
-    ::-webkit-scrollbar {
-      width: 12px;
-    }
-
-    ::-webkit-scrollbar-track {
+    html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; }
+    .gad2u-scroll-track {
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 13px;
       background: #20252a;
+      border-left: 1px solid #454b50;
+      touch-action: none;
+      cursor: pointer;
     }
-
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #ff9e1b, #ff8700, #ff9e1b);
-      border: 2px solid #20252a;
-      border-radius: 5px;
+    .gad2u-scroll-thumb {
+      position: absolute;
+      top: 0;
+      left: 3px;
+      width: 7px;
+      min-height: 35px;
+      border-radius: 4px;
+      background: #ff9400;
+      box-shadow: 0 0 2px rgba(255,148,0,.45);
+      cursor: grab;
     }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #ffa12b;
-    }
+    .gad2u-scroll-thumb:active { cursor: grabbing; }
   </style>
 </head>
 
@@ -679,5 +685,49 @@ für Zuhause, unterwegs und vieles mehr.
 
     </div>
 </footer>
+<div class="gad2u-scroll-track" aria-hidden="true"><div class="gad2u-scroll-thumb"></div></div>
+<script>
+(function () {
+  const track = document.querySelector('.gad2u-scroll-track');
+  const thumb = track.querySelector('.gad2u-scroll-thumb');
+  let dragging = false, startY = 0, startScroll = 0;
+  function maxScroll() {
+    return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  }
+  function update() {
+    const total = document.documentElement.scrollHeight;
+    const visible = window.innerHeight;
+    const height = track.clientHeight;
+    const thumbHeight = Math.max(35, Math.min(height, height * visible / Math.max(total, 1)));
+    const travel = Math.max(0, height - thumbHeight);
+    thumb.style.height = thumbHeight + 'px';
+    thumb.style.top = (maxScroll() ? (window.scrollY / maxScroll()) * travel : 0) + 'px';
+    track.style.display = total > visible ? 'block' : 'none';
+  }
+  thumb.addEventListener('pointerdown', function (e) {
+    dragging = true;
+    startY = e.clientY;
+    startScroll = window.scrollY;
+    thumb.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+  thumb.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    const travel = track.clientHeight - thumb.offsetHeight;
+    if (travel > 0) window.scrollTo(0, startScroll + (e.clientY - startY) * maxScroll() / travel);
+  });
+  thumb.addEventListener('pointerup', function () { dragging = false; });
+  thumb.addEventListener('pointercancel', function () { dragging = false; });
+  track.addEventListener('pointerdown', function (e) {
+    if (e.target === thumb) return;
+    const travel = track.clientHeight - thumb.offsetHeight;
+    if (travel > 0) window.scrollTo({top: ((e.clientY - thumb.offsetHeight / 2) / travel) * maxScroll(), behavior: 'smooth'});
+  });
+  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  update();
+})();
+</script>
 </body>
 </html>

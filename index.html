@@ -361,12 +361,12 @@
 
     @media (min-width: 1800px) and (min-aspect-ratio: 16/9) {
       .hero {
-        /* 2048 x 682: den kompletten Bildausschnitt ohne Beschnitt anzeigen */
+        /* Kompakter Widescreen-Test: Bild proportional skalieren, nicht verzerren */
         min-height: 0;
-        height: calc(100vw * 682 / 2048);
+        height: 480px;
         box-sizing: border-box;
         background-image: url("webseite-widescreen 4.4.png");
-        background-size: 100% 100%;
+        background-size: 100% auto;
         background-repeat: no-repeat;
         background-position: center center;
         background-color: #080a0c;

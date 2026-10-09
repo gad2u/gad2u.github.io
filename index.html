@@ -361,16 +361,12 @@
 
     @media (min-width: 1800px) and (min-aspect-ratio: 16/9) {
       .hero {
-        background-image:
-          linear-gradient(
-            90deg,
-            rgba(8,10,12,.88) 0%,
-            rgba(8,10,12,.70) 28%,
-            rgba(8,10,12,.18) 48%,
-            rgba(8,10,12,0) 65%
-          ),
-          url("webseite-widescreen 4.4.png");
-        background-size: 100% auto;
+        /* 2048 x 682: den kompletten Bildausschnitt ohne Beschnitt anzeigen */
+        min-height: 0;
+        height: calc(100vw * 682 / 2048);
+        box-sizing: border-box;
+        background-image: url("webseite-widescreen 4.4.png");
+        background-size: 100% 100%;
         background-repeat: no-repeat;
         background-position: center center;
         background-color: #080a0c;

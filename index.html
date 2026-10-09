@@ -365,15 +365,19 @@
         min-height: 0;
         height: calc(100vh - 410px);
         box-sizing: border-box;
-        background-image: url("webseite-widescreen 4.3.png");
-        background-size: 90% auto;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-color: #080a0c;
+        /* Hintergrund sanft bis zum Rand verlängern; Originalmotiv bleibt bei 90 % */
+        background-image: linear-gradient(90deg, #101419 0%, #151a20 12%, #101419 88%, #080a0c 100%);
+        background-color: #101419;
       }
 
       .hero::before {
-        content: none;
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("webseite-widescreen 4.3.png") center center / 90% auto no-repeat;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 4%, #000 12%, #000 88%, transparent 96%, transparent 100%);
+        mask-image: linear-gradient(90deg, transparent 0%, transparent 4%, #000 12%, #000 88%, transparent 96%, transparent 100%);
+        pointer-events: none;
       }
 
       .hero-content {

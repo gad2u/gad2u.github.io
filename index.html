@@ -489,6 +489,30 @@
 }
 
     }
+  
+    /* ---------- GAD2U SCROLLBAR: dezenter Tech-Regler ---------- */
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #d87916 #20252a;
+    }
+
+    ::-webkit-scrollbar {
+      width: 9px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #20252a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #c86b10, #ee901f, #c86b10);
+      border: 2px solid #20252a;
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffa12b;
+    }
   </style>
 </head>
 
